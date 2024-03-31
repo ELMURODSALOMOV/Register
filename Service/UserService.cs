@@ -23,9 +23,11 @@ namespace Register.Service
 
         public bool LogIn(Users user)
         {
-           return this.storeageBroker.CheckoutUser(user);
+            return user is null
+                 ? LogInUserInvalid()
+                 : LogInUserValidation(user);
+            
         }
-
         public Users SignUp(Users user)
         {
            return user is null
@@ -61,5 +63,33 @@ namespace Register.Service
             this.loggingBroker.LogError("User information is null.");
             return new Users();
         }
+        private bool LogInUserInvalid()
+        {
+            this.loggingBroker.LogError("Your login or password was entered incorrectly");
+            return false;
+        }
+        private bool LogInUserValidation(Users user)
+        {
+            if(String.IsNullOrWhiteSpace(user.Name) 
+                || String.IsNullOrWhiteSpace(user.Password))
+            {
+                this.loggingBroker.LogError("Incoming data is incomplete");
+                return false;  
+            }
+            else
+            {
+               bool userInfo = this.storeageBroker.CheckoutUser(user);
+                if(userInfo is true)
+                {
+                    this.loggingBroker.LogInformation("successful");
+                }
+                else
+                {
+                    this.loggingBroker.LogError("Not found");
+                }
+                return userInfo;
+            }
+        }
+
     }
 }
