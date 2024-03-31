@@ -1,6 +1,5 @@
-﻿using Register.Service;
+﻿using System;
+using Register.Broker.Storeage;
+using Register.Service;
 
 IUserService userService = new UserService();
-//var user = userService.GetUser("Elmurod", "Password");
-//Console.WriteLine($"{user.Name}. {user.Password}");
-userService.ReadAllUser();

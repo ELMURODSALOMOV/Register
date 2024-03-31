@@ -9,7 +9,7 @@ namespace Register.Service
 {
     internal interface IUserService
     {
-        Users GetUser(string username, string password);
-        Users[] ReadAllUser();
+        bool LogIn(Users user);
+        Users SignUp(Users user);
     }
 }

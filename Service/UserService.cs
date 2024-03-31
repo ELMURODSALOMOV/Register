@@ -19,30 +19,15 @@ namespace Register.Service
             this.loggingBroker = new LoggingBroker();
             this.storeageBroker = new ArrayStoreageBroker();
         }
-        public Users GetUser(string name, string password)
+
+        public bool LogIn(Users user)
         {
-            Users user = this.storeageBroker.ReadUser(name, password);
-            return user;
+           return this.storeageBroker.CheckoutUser(user);
         }
 
-        public Users[] ReadAllUser()
+        public Users SignUp(Users user)
         {
-            var userInfo = this.storeageBroker.GetAllUser();
-            if (userInfo.Length is 0)
-            {
-                this.loggingBroker.LogError("Information not available.");
-            }
-            else
-            {
-                for (int itaration = 0; itaration < userInfo.Length; itaration++)
-                {
-                    if (userInfo[itaration] is not null)
-                    {
-                        this.loggingBroker.LogInformation($"{userInfo[itaration].Name}.{userInfo[itaration].Password}");
-                    }
-                }
-            }
-            return userInfo;
+           return this.storeageBroker.SignUpUser(user);
         }
     }
 }
