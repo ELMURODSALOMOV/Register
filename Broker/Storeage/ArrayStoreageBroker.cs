@@ -24,19 +24,37 @@ namespace Register.Broker.Storeage
                 Password = "Asilbek11",
             };
         }
-        public Users ReadUser(string name, string password)
+        public Users SignUpUser(Users user)
         {
-            for (int itaration = 0; itaration < UsersInfo.Length; itaration++)
+            for(int iteration = 0; iteration < UsersInfo.Length; iteration++)
             {
-                Users UsersInfoLine = UsersInfo[itaration];
-                if (UsersInfoLine.Name == name)
+                if (UsersInfo[iteration] is null)
                 {
-                    return UsersInfoLine;
+                    var UserInfo = new Users()
+                    {
+                        Name = user.Name,
+                        Password = user.Password
+                    };
+                    UsersInfo[iteration] = UserInfo;
+                    return user;
                 }
             }
             return new Users();
         }
-
-        public Users[] GetAllUser() => UsersInfo;
+        public bool CheckoutUser(Users user)
+        {
+            for(int itaration = 0;itaration < UsersInfo.Length;itaration++)
+            {
+                var userInformation = UsersInfo[itaration];
+                if(userInformation is not null)
+                {
+                    if(userInformation.Name == user.Name && userInformation.Password == user.Password)
+                    {
+                       return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }
