@@ -10,5 +10,6 @@ namespace Register.Broker.Storeage
     internal interface IStoreageBroker
     {
         Users ReadUser(string name, string password);
+        Users[] GetAllUser();
     }
 }

@@ -36,5 +36,7 @@ namespace Register.Broker.Storeage
             }
             return new Users();
         }
+
+        public Users[] GetAllUser() => UsersInfo;
     }
 }

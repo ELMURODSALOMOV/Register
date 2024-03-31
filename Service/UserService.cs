@@ -24,5 +24,25 @@ namespace Register.Service
             Users user = this.storeageBroker.ReadUser(name, password);
             return user;
         }
+
+        public Users[] ReadAllUser()
+        {
+            var userInfo = this.storeageBroker.GetAllUser();
+            if (userInfo.Length is 0)
+            {
+                this.loggingBroker.LogError("Information not available.");
+            }
+            else
+            {
+                for (int itaration = 0; itaration < userInfo.Length; itaration++)
+                {
+                    if (userInfo[itaration] is not null)
+                    {
+                        this.loggingBroker.LogInformation($"{userInfo[itaration].Name}.{userInfo[itaration].Password}");
+                    }
+                }
+            }
+            return userInfo;
+        }
     }
 }

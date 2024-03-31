@@ -10,5 +10,6 @@ namespace Register.Service
     internal interface IUserService
     {
         Users GetUser(string username, string password);
+        Users[] ReadAllUser();
     }
 }
