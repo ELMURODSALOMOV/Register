@@ -62,6 +62,7 @@ namespace Register.Service
         {
             this.loggingBroker.LogError("User information is null.");
             return new Users();
+
         }
         private bool LogInUserInvalid()
         {
