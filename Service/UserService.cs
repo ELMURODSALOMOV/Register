@@ -23,9 +23,18 @@ namespace Register.Service
 
         public bool LogIn(Users user)
         {
-            return user is null
-                 ? LogInUserInvalid()
-                 : LogInUserValidation(user);
+            try
+            {
+                return user is null
+                     ? LogInUserInvalid()
+                     : LogInUserValidation(user);
+            }
+            catch (Exception exception)
+            {
+
+                this.loggingBroker.LogError(exception);
+                return false;
+            }
             
         }
         public Users SignUp(Users user)

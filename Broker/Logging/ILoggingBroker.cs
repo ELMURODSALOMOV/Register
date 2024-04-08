@@ -10,5 +10,6 @@ namespace Register.Broker.Logging
     {
         void LogInformation(string message);
         void LogError(string UserMessage);
+        void LogError(Exception exception);
     }
 }
