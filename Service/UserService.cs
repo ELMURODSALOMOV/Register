@@ -39,9 +39,17 @@ namespace Register.Service
         }
         public Users SignUp(Users user)
         {
-           return user is null
-                ? SignUpUsersInvalid()
-                : ValidationAndSignUpUser(user);
+            try
+            {
+                return user is null
+                    ? SignUpUsersInvalid()
+                    : ValidationAndSignUpUser(user);
+            }
+            catch(Exception exception) 
+            {
+                this.loggingBroker.LogError(exception);
+                return new Users();
+            }
         }
 
         private Users ValidationAndSignUpUser(Users user)
