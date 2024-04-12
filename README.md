@@ -8,7 +8,7 @@ You can see the registration process in this project
 
 <h3>Initial view of UserManagment.Console</h3>
 
-![Intial code](/img/carbon.png)
+ ![Sign up Log in](/img/carbon.png)
 
 <h3>Run CODE Sign up</h3>
 
