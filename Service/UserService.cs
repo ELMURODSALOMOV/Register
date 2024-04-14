@@ -54,7 +54,7 @@ namespace Register.Service
 
         private Users ValidationAndSignUpUser(Users user)
         {
-            if(String.IsNullOrWhiteSpace(user.Name)
+            if(String.IsNullOrWhiteSpace(user.Email)
               || String.IsNullOrWhiteSpace(user.Password))
             {
                 this.loggingBroker.LogError("Invalid user information.");
@@ -88,7 +88,7 @@ namespace Register.Service
         }
         private bool LogInUserValidation(Users user)
         {
-            if(String.IsNullOrWhiteSpace(user.Name) 
+            if(String.IsNullOrWhiteSpace(user.Email) 
                 || String.IsNullOrWhiteSpace(user.Password))
             {
                 this.loggingBroker.LogError("Incoming data is incomplete");
