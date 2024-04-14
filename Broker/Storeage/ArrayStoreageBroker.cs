@@ -26,7 +26,7 @@ namespace Register.Broker.Storeage
         }
         public Users SignUpUser(Users user)
         {
-            for(int iteration = 0; iteration < UsersInfo.Length; iteration++)
+            for (int iteration = 0; iteration < UsersInfo.Length; iteration++)
             {
                 if (UsersInfo[iteration] is null)
                 {
@@ -43,14 +43,14 @@ namespace Register.Broker.Storeage
         }
         public bool CheckoutUser(Users user)
         {
-            for(int itaration = 0;itaration < UsersInfo.Length;itaration++)
+            for (int itaration = 0; itaration < UsersInfo.Length; itaration++)
             {
                 var userInformation = UsersInfo[itaration];
-                if(userInformation is not null)
+                if (userInformation is not null)
                 {
-                    if(userInformation.Email == user.Email && userInformation.Password == user.Password)
+                    if (userInformation.Email == user.Email && userInformation.Password == user.Password)
                     {
-                       return true;
+                        return true;
                     }
                 }
             }

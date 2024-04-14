@@ -67,6 +67,14 @@ namespace Register.Service
                 {
                     this.loggingBroker.LogError("Not added user info");
                 }
+                else if(user.Password.Length < 8)
+                {
+                    this.loggingBroker.LogError("Password does not contain 8 characters");
+                }
+                else if(!user.Password.Any(char.IsUpper))
+                {
+                    this.loggingBroker.LogError("Password must contain one capital letter!");
+                }
                 else
                 {
                     this.loggingBroker.LogInformation("Added user");
