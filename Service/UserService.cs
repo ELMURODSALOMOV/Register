@@ -67,6 +67,10 @@ namespace Register.Service
                 {
                     this.loggingBroker.LogError("Not added user info");
                 }
+                else if(!user.Email.Contains("@gmail.com"))
+                {
+                    this.loggingBroker.LogError("There is an error in the email");
+                }
                 else if(user.Password.Length < 8)
                 {
                     this.loggingBroker.LogError("Password does not contain 8 characters");
@@ -101,6 +105,11 @@ namespace Register.Service
             {
                 this.loggingBroker.LogError("Incoming data is incomplete");
                 return false;  
+            }
+            else if (!user.Email.Contains("@gmail.com"))
+            {
+                this.loggingBroker.LogError("There is an error in the email");
+                return false;
             }
             else
             {
