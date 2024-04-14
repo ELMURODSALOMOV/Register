@@ -15,7 +15,7 @@ do
     {
         Users users = new Users();
         Console.WriteLine("Enter your username ");
-        users.Name = Console.ReadLine();
+        users.Email = Console.ReadLine();
         Console.WriteLine("Enter the user password ");
         users.Password = Console.ReadLine();
         userService.SignUp(users);
@@ -23,8 +23,8 @@ do
     if(command.Contains("2") is true)
     {
         Users users1 = new Users();
-        Console.WriteLine("Enter your username ");
-        users1.Name = Console.ReadLine();
+        Console.WriteLine("Enter your Email ");
+        users1.Email = Console.ReadLine();
         Console.WriteLine("Enter the user password ");
         users1.Password = Console.ReadLine();
         userService.LogIn(users1);

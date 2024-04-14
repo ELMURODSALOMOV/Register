@@ -15,12 +15,12 @@ namespace Register.Broker.Storeage
         {
             UsersInfo[0] = new Users()
             {
-                Name = "Elmurod",
+                Email = "Elmurod@gmail.com",
                 Password = "password",
             };
             UsersInfo[1] = new Users()
             {
-                Name = "Asilbek",
+                Email = "Asilbek@gmail.com",
                 Password = "Asilbek11",
             };
         }
@@ -32,7 +32,7 @@ namespace Register.Broker.Storeage
                 {
                     var UserInfo = new Users()
                     {
-                        Name = user.Name,
+                        Email = user.Email,
                         Password = user.Password
                     };
                     UsersInfo[iteration] = UserInfo;
@@ -48,7 +48,7 @@ namespace Register.Broker.Storeage
                 var userInformation = UsersInfo[itaration];
                 if(userInformation is not null)
                 {
-                    if(userInformation.Name == user.Name && userInformation.Password == user.Password)
+                    if(userInformation.Email == user.Email && userInformation.Password == user.Password)
                     {
                        return true;
                     }
