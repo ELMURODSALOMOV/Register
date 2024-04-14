@@ -14,7 +14,7 @@ do
     if(command.Contains("1") is true)
     {
         Users users = new Users();
-        Console.WriteLine("Enter your Email ");
+        Console.WriteLine("Enter your E-mail ");
         users.Email = Console.ReadLine();
         Console.WriteLine("Enter the user password ");
         users.Password = Console.ReadLine();
@@ -23,7 +23,7 @@ do
     if(command.Contains("2") is true)
     {
         Users users1 = new Users();
-        Console.WriteLine("Enter your Email ");
+        Console.WriteLine("Enter your E-mail ");
         users1.Email = Console.ReadLine();
         Console.WriteLine("Enter the user password ");
         users1.Password = Console.ReadLine();
